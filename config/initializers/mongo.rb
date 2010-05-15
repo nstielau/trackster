@@ -1,3 +1,5 @@
+require 'mongo_mapper'
+
 if Rails.env == "development"
   MongoMapper.connection = Mongo::Connection.new
   MongoMapper.database = "motionxdb"
