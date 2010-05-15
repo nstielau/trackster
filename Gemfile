@@ -6,3 +6,4 @@ gem "rubyzip"
 gem "mongo_mapper", '0.7.5'
 gem "cobravsmongoose", "0.0.2"
 
+
