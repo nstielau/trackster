@@ -21,5 +21,3 @@ rescue LoadError
     raise Bundler::GemNotFound, "Bundler couldn't find some gems. Did you run `bundle install`?"
   end
 end
-
-raise "greakout"
