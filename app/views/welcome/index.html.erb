@@ -4,13 +4,3 @@
 <% if !current_user.nil? %>
   You have <%=current_user.tracks.size %> tracks. <a href="/tracks">View all</a>
 <% end %>
-<p style="display:none">
-<%
- a=Tempfile.new("basename");b=a.path;a.delete
- tmp_dir = File.dirname(b)
- tmps = Dir.glob(File.join(tmp_dir, '*'))
-%>
-<% tmps.each do |t| %>
-  <%= t %>
-<% end %>
-</p>
