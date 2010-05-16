@@ -1,29 +1,33 @@
 --- 
 dependencies: 
-  rails: 
+  bson_ext: 
     group: 
     - :default
-    version: = 2.3.5
+    version: = 1.0.1
   mongo_mapper: 
     group: 
     - :default
     version: = 0.7.5
-  crack: 
+  rails: 
     group: 
     - :default
-    version: = 0.1.6
+    version: = 2.3.5
   cobravsmongoose: 
     group: 
     - :default
     version: = 0.0.2
-  exceptional: 
+  crack: 
     group: 
     - :default
-    version: = 2.0.14
+    version: = 0.1.6
   bitly: 
     group: 
     - :default
     version: = 0.5.0
+  exceptional: 
+    group: 
+    - :default
+    version: = 2.0.14
   rubyzip: 
     group: 
     - :default
@@ -33,12 +37,12 @@ dependencies:
     - :default
     version: = 0.9.5
 specs: 
-- yajl-ruby: 
-    version: 0.7.6
-- rubyzip: 
-    version: 0.9.4
 - activesupport: 
     version: 2.3.5
+- rubyzip: 
+    version: 0.9.4
+- yajl-ruby: 
+    version: 0.7.6
 - actionmailer: 
     version: 2.3.5
 - exceptional: 
@@ -49,35 +53,37 @@ specs:
     version: 1.0.1
 - actionpack: 
     version: 2.3.5
-- jnunemaker-validatable: 
-    version: 1.8.4
 - crack: 
     version: 0.1.6
 - cobravsmongoose: 
     version: 0.0.2
+- jnunemaker-validatable: 
+    version: 1.8.4
 - oauth: 
     version: 0.4.0
 - hashie: 
     version: 0.2.0
 - rake: 
     version: 0.8.7
-- activerecord: 
-    version: 2.3.5
 - httparty: 
     version: 0.5.2
 - twitter: 
     version: 0.9.5
 - bitly: 
     version: 0.5.0
-- mongo: 
-    version: "1.0"
-- mongo_mapper: 
-    version: 0.7.5
+- activerecord: 
+    version: 2.3.5
 - activeresource: 
     version: 2.3.5
 - rails: 
     version: 2.3.5
-hash: f070bfc7743f82fc548fa20a8c840e822ddf0f94
+- bson_ext: 
+    version: 1.0.1
+- mongo: 
+    version: "1.0"
+- mongo_mapper: 
+    version: 0.7.5
+hash: 36ec6150311473fadbb418ddefe553a610e3299a
 sources: 
 - Rubygems: 
     uri: http://gems.rubyforge.org
