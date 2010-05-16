@@ -2,13 +2,13 @@
 links = []
 
 if current_user
-  links << ["Home", "/"]
+  links << ["Dashboard", "/"]
   links << ["My Tracks", "/tracks"]
   links << ["Add Track", "/tracks/new"]
 else
   links << ["Home", "/"]
 end
-
+links << ["Help", "/help"]
 %>
 <ul id="nav">
 <% links.each do |text, url |%>

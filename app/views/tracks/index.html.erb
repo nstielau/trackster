@@ -1,13 +1,13 @@
 <%
 @page_title = "My Tracks"
 %>
+<% if @tracks.size > 0 %>
 <table style="width:100%">
   <tr>
     <th style="width:90%">Name</th>
     <th style="width:5%"></th>
     <th style="width:5%"></th>
   </tr>
-
 <% @tracks.each do |track| %>
   <tr>
     <td><%= track.name %></td>
@@ -16,3 +16,6 @@
   </tr>
 <% end %>
 </table>
+<% else %>
+  <p>You don't have any tracks. You can <a href="/help">get some help</a> with adding your first track.  Or, if you already have the URL, you can go ahead and <a href="/tracks/new">add it now</a>.</p>
+<% end %>
