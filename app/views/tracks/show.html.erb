@@ -1,10 +1,20 @@
 <%
 @page_title = "Details for Track '#{@track.name}'"
 %>
-<table>
+<table style="float:left;">
 <% ["active_time", "avg_pace", "avg_speed", "created_at", "created_utc", "distance", "formatted_avg_pace", "formatted_avg_speed", "formatted_date_time", "formatted_distance", "formatted_elapsed_time", "formatted_end_date", "formatted_location_finish_lat", "formatted_location_finish_lon", "formatted_location_start_lat", "formatted_location_start_lon", "formatted_max_alt", "formatted_max_speed", "formatted_min_alt", "formatted_start_date", "max_speed", "motionx_id", "name", "note", "saved_time_utc", "start_time_utc", "type", "updated_at", "updated_utc"].select{|x| x.match("formatted")}.each do |property| %>
-
   <tr><td><strong><%= property.gsub("formatted","").titleize %></strong></td><td><%= @track.send(property) %></td></tr>
 <% end %>
 </table>
 <%= link_to 'Back', tracks_path %>
+<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAo8bc1c27F-9TbmXoOvo29xR9QZhLRQECTl_QD6wmjuLENW7trhRyU8JSGhtW6n4vyoH3m4MhGP4wWw&sensor=false" type="text/javascript"></script>
+<script type="text/javascript">
+   $(document).ready(function() {
+     if (GBrowserIsCompatible()) {
+       var map = new GMap2(document.getElementById("map_canvas"));
+       map.setCenter(new GLatLng.fromUrlValue("<%= "#{@track.unformatted_location_start_lat.gsub('"', '\\"')},#{@track.unformatted_location_start_lon.gsub('"', '\\"')}"-%>"), 12);
+       map.setUIToDefault();
+     }
+   });
+</script>
+<div id="map_canvas" style="width: 300px; height: 300px;float:right;"></div>

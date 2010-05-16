@@ -236,7 +236,7 @@ div.post-header div.date {
 ---------------------------------------*/
 .entry {
   margin: 0 0 0 0px;
-  width: 497px;
+  zzwidth: 497px;
   font-size: 1.3em;
 }
 .entry p { margin-bottom: 10px; }

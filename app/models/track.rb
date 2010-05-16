@@ -52,6 +52,20 @@ class Track
     Track.create(result.merge(addl_props))
   end
 
+  def unformatted_location_start_lon
+    parts = formatted_location_start_lon.gsub(/[\D|\s]/, " ").split(/\s/).reject{|x| x == ""}
+    a = parts[0].to_f + (parts[1].to_f/60.0) + (parts[2].to_f/60.0/60.0)
+    a = a.to_f * -1 if formatted_location_start_lon.match("W")
+    a.to_s
+  end
+
+  def unformatted_location_start_lat
+    parts = formatted_location_start_lat.gsub(/[\D|\s]/, " ").split(/\s/).reject{|x| x == ""}
+    a = parts[0].to_f + (parts[1].to_f/60.0) + (parts[2].to_f/60.0/60.0)
+    a = a.to_f * -1 if formatted_location_start_lat.match("S")
+    a.to_s
+  end
+
   private
 
   def self.parse_motionx_url_from_gmaps_url(url)
