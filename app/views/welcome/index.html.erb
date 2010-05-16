@@ -1,11 +1,6 @@
 <h2>Welcome</h2>
 
-<% if current_user.nil? %>
-<a href="/signup">Signup</a>
-<a href="/login">Login</a>
-<% else %>
-  You is logged in!
-
+<% if !current_user.nil? %>
   You have <%=current_user.tracks.size %> tracks.
   <ul>
   <% current_user.tracks.each do |t| %>
