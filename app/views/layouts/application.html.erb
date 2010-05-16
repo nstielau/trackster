@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+   "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Tracks: <%= controller.action_name %></title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name='robots' content='index,follow' />
+  <!--Stylesheets-->
+  <%= stylesheet_link_tag 'titan', 'master' %>
+
+  <!--[if lt IE 8]>
+    <link rel="stylesheet" type="text/css" media="screen" href="/stylesheets/ie.css" />
+  <![endif]-->
+
+  <!--Scripts-->
+  <!--[if lte IE 7]>
+    <script type="text/javascript">
+      sfHover=function(){var sfEls=document.getElementById("nav").getElementsByTagName("LI");for(var i=0;i<sfEls.length;i++){sfEls[i].onmouseover=function(){this.className+=" sfhover";}
+      sfEls[i].onmouseout=function(){this.className=this.className.replace(new RegExp(" sfhover\\b"),"");}}}
+      if(window.attachEvent)window.attachEvent("onload",sfHover);
+    </script>
+  <![endif]-->
+
+<meta name="generator" content="WordPress 2.9.2" />
+</head>
+<body class="home blog">
+  <div class="skip-content"><a href="#content">Skip to content</a></div>
+  <div id="header" class="clear">
+    <div id="follow">
+      <div class="wrapper clear">
+        <dl>
+          <% if !current_user.nil? %>
+          <dt>Welcome, <%= current_user.login -%>:</dt>
+          <% else %>
+          <dt>Signup:</dt>
+          <% end %>
+            <% if current_user.nil? %>
+            <dd><a href="/signup">Signup</a></dd>
+            <dd><a href="/login">Login</a></dd>
+            <% else %>
+            <dd><a href="/logout">Logout</a></dd>
+            <% end %>
+        </dl>
+      </div><!--end wrapper-->
+    </div><!--end follow-->
+    <div class="wrapper">
+      <h1 id="title"><a href="/"><%= application -%></a></h1>
+      <div id="description">
+        <%= tagline -%>
+      </div><!--end description-->
+      <div id="navigation">
+        <%= render :partial => "shared/nav"%>
+      </div><!--end navigation-->
+     </div><!--end wrapper-->
+  </div><!--end header-->
+<div class="content-background">
+<div class="wrapper">
+  <div class="notice">
+    <% if flash[:notice] %>
+      <div>
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+  </div>
+
+  <div id="content">
+    <div id="post-19" class="post hentry category-uncategorized tag-boat tag-lake">
+      <div class="post-header">
+        <h2><%= @page_title || "PAGE TITLE" -%></h2>
+      </div><!--end post header-->
+      <div class="entry clear">
+        <%= yield %>
+      </div><!--end entry-->
+      <div class="post-footer">
+      </div><!--end post footer-->
+    </div><!--end post-->
+
+        <div class="navigation index">
+      <div class="alignleft"></div>
+      <div class="alignright"></div>
+    </div><!--end navigation-->
+      </div><!--end content-->
+
+  <div id="sidebar">
+    <div id="sidebox">
+      <a href="/"><img src="/images/sidebar/sidebox.jpg" width="236" height="236" alt="Incongruous Photograph" /></a>
+    </div><!--end sidebox-->
+    <ul>
+      <li class="widget widget_recent_entries">
+        <h2 class="widgettitle">Recent Articles</h2>
+        <ul>
+          <li><a href= "#">Worth A Thousand Words</a></li>
+          <li><a href= "#">Elements</a></li>
+          <li><a href= "#">More Tags</a></li>
+        </ul>
+      </li>
+    </ul>
+
+            </div><!--end sidebar--></div><!--end wrapper-->
+</div><!--end content-background-->
+<div id="footer">
+  <div class="wrapper clear">
+    <div id="footer-about" class="footer-column">
+      <h2>About</h2>
+                  <p>
+                    Trackster is trying to add a little booyeah to <a href="http://motionx.com/">MotionX</a>'s <a href="http://gps.motionx.com/iphone/overview/">iPhone GPS app</a>.  It'll help you track your tracks over time, giving you some stats about your comings and goings.
+                  </p>
+            </div>
+    <div id="footer-flickr" class="footer-column">
+              <h2>Terrain</h2>
+                <div class="flickr_badge_image">
+                    <img src="/images/topo6.png" alt="A topo map snippit." height="75" width="75"/>
+                </div>
+                <div class="flickr_badge_image">
+                    <img src="/images/topo1.png" alt="A topo map snippit." height="75" width="75"/>
+                </div>
+                <div class="flickr_badge_image">
+                    <img src="/images/topo2.png" alt="A topo map snippit." height="75" width="75"/>
+                </div>
+                <div class="flickr_badge_image">
+                    <img src="/images/topo3.png" alt="A topo map snippit." height="75" width="75"/>
+                  </div>
+                  <div class="flickr_badge_image">
+                      <img src="/images/topo4.png" alt="A topo map snippit." height="75" width="75"/>
+                  </div>
+                  <div class="flickr_badge_image">
+                      <img src="/images/topo5.png" alt="A topo map snippit." height="75" width="75"/>
+                  </div>
+          </div>
+    <div id="footer-search" class="footer-column">
+
+      <h2>Powered By</h2>
+      <div>
+        <p><a href="http://rubyonrails.org/">Rails</a></p>
+        <p><a href="http://www.mongodb.org/">MongoDB</a></p>
+        <p><a href="http://mongohq.com/">MongoHQ</a></p>
+        <p><a href="http://mongomapper.com/">MongoMapper</a></p>
+        <p><a href="http://heroku.com/">Heroku</a></p>
+      </div>
+    </div>
+    <div id="copyright">
+                <p class="copyright-notice">Copyright &copy; <%= Time.now.year -%> . <a href="http://thethemefoundry.com/titan/">Titan Theme</a> by <a href="http://thethemefoundry.com">The Theme Foundry</a>.</p>
+    </div><!--end copyright-->
+  </div><!--end wrapper-->
+</div><!--end footer-->
+</body>
+</html>

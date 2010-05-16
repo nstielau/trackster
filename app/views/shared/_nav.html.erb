@@ -1,0 +1,21 @@
+<%
+links = []
+
+if current_user
+  links << ["Home", "/"]
+  links << ["My Tracks", "/tracks"]
+  links << ["Add Track", "/tracks/new"]
+else
+  links << ["Home", "/"]
+end
+
+%>
+<ul id="nav">
+<% links.each do |text, url |%>
+  <% if request.env["PATH_INFO"] == url %>
+    <li class="page_item current_page_item"><a href="<%= url -%>"><%= text -%></a></li>
+  <% else %>
+    <li class="page_item"><a href="<%= url -%>"><%= text -%></a></li>
+  <% end %>
+<% end %>
+</ul>

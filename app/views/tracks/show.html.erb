@@ -1,4 +1,8 @@
-<%= h @track.inspect %>
+<%
+@page_title = "Track Details"
+%>
+<% Track.keys.keys.each do |property| %>
+  <p><%= property %> - <%= @track.send(property) %></p>
+<% end %>
 <br/>
-<%= link_to 'Edit', edit_track_path(@track) %> |
 <%= link_to 'Back', tracks_path %>

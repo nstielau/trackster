@@ -1,23 +1,18 @@
-<h1>Listing tracks</h1>
-
-<table>
+<%
+@page_title = "My Tracks"
+%>
+<table style="width:100%">
   <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th style="width:90%">Name</th>
+    <th style="width:5%"></th>
+    <th style="width:5%"></th>
   </tr>
 
 <% @tracks.each do |track| %>
   <tr>
     <td><%= track.name %></td>
-    <td><%= link_to 'Show', track %></td>
-    <td><%= link_to 'Edit', edit_track_path(track) %></td>
-    <td><%= link_to 'Destroy', track, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to image_tag("icons/ico-viewpage.png", :alt => 'View Track Details', :title => "View Track Details"), track %></td>
+    <td><%= link_to image_tag("icons/ico-close.png", :alt => 'Destroy', :title => "Destroy"), track, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New track', new_track_path %>

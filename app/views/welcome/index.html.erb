@@ -1,5 +1,6 @@
-<h2>Welcome</h2>
-
+<%
+@page_title = "Welcome"
+%>
 <% if !current_user.nil? %>
   You have <%=current_user.tracks.size %> tracks. <a href="/tracks">View all</a>
 <% end %>
