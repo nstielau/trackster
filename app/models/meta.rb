@@ -3,7 +3,7 @@ require 'mongo_mapper'
 class Meta
   include MongoMapper::Document
 
-  key :last_twitter_update, Time, :default => Time.at(0)
+  key :last_twitter_update, Integer, :default => 0
 
   def self.get_instance
     raise "There should only ever be 1 meta" if Meta.count > 1
