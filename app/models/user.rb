@@ -15,8 +15,8 @@ class User
   key :email,                     String
   key :name,                      String
   timestamps!
-
-  many :players
+  #
+  # many :players
 
   validates_presence_of     :login
   validates_length_of       :login,    :within => 3..40
