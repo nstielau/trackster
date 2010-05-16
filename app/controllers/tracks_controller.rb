@@ -34,11 +34,6 @@ class TracksController < ApplicationController
     end
   end
 
-  # GET /tracks/1/edit
-  def edit
-    @track = Track.find(params[:id])
-  end
-
   # POST /tracks
   # POST /tracks.xml
   def create
@@ -52,23 +47,6 @@ class TracksController < ApplicationController
         format.xml  { render :xml => @track, :status => :created, :location => @track }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @track.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
-
-  # PUT /tracks/1
-  # PUT /tracks/1.xml
-  def update
-    @track = Track.find(params[:id])
-
-    respond_to do |format|
-      if @track.update_attributes(params[:track])
-        flash[:notice] = 'Track was successfully updated.'
-        format.html { redirect_to(@track) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
         format.xml  { render :xml => @track.errors, :status => :unprocessable_entity }
       end
     end
