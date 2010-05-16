@@ -10,6 +10,7 @@
 <body>
 
 <p style="color: green"><%= flash[:notice] %></p>
+<div>
 <% if current_user.nil? %>
 <a href="/signup">Signup</a>
 <a href="/login">Login</a>
@@ -17,6 +18,7 @@
   You is logged in!
   <a href="/logout">Logout</a>
 <% end %>
+</div>
 <%= yield %>
 
 </body>
