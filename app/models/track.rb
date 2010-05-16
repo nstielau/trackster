@@ -9,7 +9,7 @@ class Track
   key :name, String
   key :distance
   key :active_time
-  key :avg_page
+  key :avg_pace
   key :avg_speed
   key :created_utc
   key :motionx_id
@@ -18,20 +18,20 @@ class Track
   key :saved_time_utc
   key :start_time_utc
   key :updated_utc
-  key :formatted_avg_pace
-  key :formatted_avg_speed
-  key :formatted_date_time
-  key :formatted_distance
-  key :formatted_elapsed_time
-  key :formatted_end_date
-  key :formatted_location_finish_lat
-  key :formatted_location_finish_lon
-  key :formatted_location_start_lat
-  key :formatted_location_start_lon
-  key :formatted_max_alt
-  key :formatted_max_speed
-  key :formatted_min_alt
-  key :formatted_start_date
+  key :formatted_avg_pace, String
+  key :formatted_avg_speed, String
+  key :formatted_date_time, String
+  key :formatted_distance, String
+  key :formatted_elapsed_time, String
+  key :formatted_end_date, String
+  key :formatted_location_finish_lat, String
+  key :formatted_location_finish_lon, String
+  key :formatted_location_start_lat, String
+  key :formatted_location_start_lon, String
+  key :formatted_max_alt, String
+  key :formatted_max_speed, String
+  key :formatted_min_alt, String
+  key :formatted_start_date, String
   key :note, String
   timestamps!
 
