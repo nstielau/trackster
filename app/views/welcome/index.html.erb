@@ -7,10 +7,10 @@
     <td><strong>Total Tracks:</strong></td><td><%= @total_tracks -%></td>
   </tr>
   <tr>
-    <td><strong>Total Active Time:</strong></td><td><%= @total_active_time -%> seconds</td>
+    <td><strong>Total Active Time:</strong></td><td><%= @total_active_time.to_i -%> seconds</td>
   </tr>
   <tr>
-    <td><strong>Total Distance:</strong></td><td><%= @total_distance -%> meters</td>
+    <td><strong>Total Distance:</strong></td><td><%= @total_distance.to_i -%> meters</td>
   </tr>
 </table>
 <a href="/tracks">View All Tracks</a>
