@@ -46,9 +46,12 @@ class Track
       url = parse_motionx_url_from_gmaps_url(url)
     end
     addl_props[:kmz_url] = url
+    raise BadURLError if url.nil?
     file = open(url)
+    raise BadKMZFileError if file.path.nil?
     result = read_motionx_zip_data(file.path)
     file.delete
+    raise BadKMZParseError if result.nil?
     Track.create(result.merge(addl_props))
   end
 
@@ -79,6 +82,7 @@ class Track
        if f.to_s.match("xml")
          kml = f.get_input_stream.read
          hash = CobraVsMongoose.xml_to_hash(kml)
+         raise WaypointNotTrackError.new if hash["waypoint"]
          result = {
            :duration => hash["track"]["@duration"],
            :distance => hash["track"]["@distance"],
@@ -115,3 +119,8 @@ class Track
     result
   end
 end
+
+class BadKMZFileError < StandardError; end
+class WaypointNotTrackError < StandardError; end
+class BadURLError < StandardError; end
+class BadKMZParseError < StandardError; end
