@@ -1,17 +1,21 @@
 --- 
 dependencies: 
-  rails: 
-    group: 
-    - :default
-    version: = 2.3.5
   mongo_mapper: 
     group: 
     - :default
     version: = 0.7.5
+  rails: 
+    group: 
+    - :default
+    version: = 2.3.5
   cobravsmongoose: 
     group: 
     - :default
     version: = 0.0.2
+  exceptional: 
+    group: 
+    - :default
+    version: = 2.0.14
   rubyzip: 
     group: 
     - :default
@@ -21,6 +25,8 @@ specs:
     version: 0.9.4
 - activesupport: 
     version: 2.3.5
+- exceptional: 
+    version: 2.0.14
 - rack: 
     version: 1.0.1
 - actionpack: 
@@ -37,15 +43,15 @@ specs:
     version: 0.8.7
 - activerecord: 
     version: 2.3.5
-- mongo: 
-    version: "1.0"
-- mongo_mapper: 
-    version: 0.7.5
 - activeresource: 
     version: 2.3.5
 - rails: 
     version: 2.3.5
-hash: 5e2c9cf32e3cf924f0688c197cc5f008f8723dd7
+- mongo: 
+    version: "1.0"
+- mongo_mapper: 
+    version: 0.7.5
+hash: 4114eca0405272c59372800b4445997b33d523ec
 sources: 
 - Rubygems: 
     uri: http://gems.rubyforge.org
