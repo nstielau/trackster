@@ -14,6 +14,8 @@
        var map = new GMap2(document.getElementById("map_canvas"));
        map.setCenter(new GLatLng.fromUrlValue("<%= "#{@track.unformatted_location_start_lat.gsub('"', '\\"')},#{@track.unformatted_location_start_lon.gsub('"', '\\"')}"-%>"), 12);
        map.setUIToDefault();
+       kml = new GGeoXml("<%= @track.kmz_url -%>");
+       map.addOverlay(kml);
      }
    });
 </script>
