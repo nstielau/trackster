@@ -39,6 +39,7 @@ class Track
   def self.parse_track(url)
     file = open(url)
     result = read_motionx_zip_data(file.path)
+    file.delete
     Track.create(result)
   end
 
