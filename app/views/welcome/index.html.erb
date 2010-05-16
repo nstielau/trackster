@@ -4,5 +4,12 @@
 <a href="/signup">Signup</a>
 <a href="/login">Login</a>
 <% else %>
-You is logged in!
+  You is logged in!
+
+  You have <%=current_user.tracks.size %> tracks.
+  <ul>
+  <% current_user.tracks.each do |t| %>
+    <li><%= h t.inspect%></li>
+  <% end %>
+  </ul>
 <% end %>
