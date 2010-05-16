@@ -57,10 +57,12 @@ class User
   end
 
   def total_distance
+    return 0 if tracks.size == 0
     Track.collection.group(nil, {"user_id" => id},{"total_distance" => 0}, "function(obj,prev){prev.total_distance += obj.distance}")[0]["total_distance"]
   end
 
   def total_active_time
+    return 0 if tracks.size == 0
     Track.collection.group(nil, {"user_id" => id},{"total_active_time" => 0}, "function(obj,prev){prev.total_active_time += obj.active_time}")[0]["total_active_time"]
   end
 
