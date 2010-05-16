@@ -7,8 +7,8 @@ class Track
   include MongoMapper::Document
 
   key :name, String
-  key :distance
-  key :active_time
+  key :distance, Fixnum
+  key :active_time, Fixnum
   key :avg_pace
   key :avg_speed
   key :created_utc
@@ -33,16 +33,23 @@ class Track
   key :formatted_min_alt, String
   key :formatted_start_date, String
   key :note, String
+  key :kmx_url, String
+  key :gmaps_url, String
   timestamps!
 
   belongs_to :user
 
   def self.parse_track(url)
-    url = parse_motionx_url_from_gmaps_url(url) if url.match("maps.google.com")
+    addl_props = {}
+    if url.match("maps.google.com")
+      addl_props[:gmaps_url] = url
+      url = parse_motionx_url_from_gmaps_url(url)
+    end
+    addl_props[:kmz_url] = url
     file = open(url)
     result = read_motionx_zip_data(file.path)
     file.delete
-    Track.create(result)
+    Track.create(result.merge(addl_props))
   end
 
   private

@@ -56,6 +56,14 @@ class User
     write_attribute :email, (value ? value.downcase : nil)
   end
 
+  def total_distance
+    Track.collection.group(nil, {"user_id" => id},{"total_distance" => 0}, "function(obj,prev){prev.total_distance += obj.distance}")[0]["total_distance"]
+  end
+
+  def total_active_time
+    Track.collection.group(nil, {"user_id" => id},{"total_active_time" => 0}, "function(obj,prev){prev.total_active_time += obj.active_time}")[0]["total_active_time"]
+  end
+
   protected
 
 end
