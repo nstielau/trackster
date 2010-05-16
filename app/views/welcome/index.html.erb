@@ -1,5 +1,5 @@
 <%
-@page_title = "Welcome"
+@page_title = current_user ? "Dashboard" : "Welcome"
 %>
 <% if !current_user.nil? %>
 <table>
@@ -14,4 +14,16 @@
   </tr>
 </table>
 <a href="/tracks">View All Tracks</a>
+<% else %>
+<p>
+  Welcome to Trackster.org
+</p>
+<p>
+  Trackster is a an easy to use tool that allows you to input your MotionX GPS tracks, so you can see aggregate statistics about your tracks, i.e. total distance travelled.
+</p>
+<p>
+  We'll continue to add new features, statistics, graphs and aggregations.
+</p>
+<a href="/signup">Signup Now</a>
+
 <% end %>
