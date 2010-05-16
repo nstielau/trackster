@@ -5,6 +5,6 @@ module ApplicationHelper
   end
 
   def tagline
-    "Adding a little booyeah to your motionx tracks."
+    "Adding a little booyeah to your GPS tracks."
   end
 end
