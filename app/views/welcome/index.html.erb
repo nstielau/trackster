@@ -7,10 +7,10 @@
     <td><strong>Total Tracks:</strong></td><td><%= @total_tracks -%></td>
   </tr>
   <tr>
-    <td><strong>Total Active Time:</strong></td><td><%= @total_active_time.to_i -%> seconds</td>
+    <td><strong>Total Active Time:</strong></td><td><%= sprintf("%.2f", @total_active_time / 60) -%> minutes</td>
   </tr>
   <tr>
-    <td><strong>Total Distance:</strong></td><td><%= @total_distance.to_i -%> meters</td>
+    <td><strong>Total Distance:</strong></td><td><%= sprintf("%.2f", @total_distance.to_f.meters.to.miles.to_f) -%> miles</td>
   </tr>
 </table>
 <a href="/tracks">View All Tracks</a>
