@@ -47,7 +47,6 @@ class Track
       addl_props[:gmaps_url] = url
       url = parse_motionx_url_from_gmaps_url(url)
     end
-    raise DuplicateMotionxIdError if TwitterTrack.first(:kmz_url => url)
     addl_props[:kmz_url] = url
     raise BadURLError if url.nil?
     file = open(url)
@@ -127,4 +126,3 @@ class BadKMZFileError < StandardError; end
 class WaypointNotTrackError < StandardError; end
 class BadURLError < StandardError; end
 class BadKMZParseError < StandardError; end
-class DuplicateMotionxIdError < StandardError; end
