@@ -4,6 +4,7 @@ class Meta
   include MongoMapper::Document
 
   key :last_twitter_update, String, :default => 0
+  timestamps!
 
   def self.get_instance
     raise "There should only ever be 1 meta" if Meta.count > 1
