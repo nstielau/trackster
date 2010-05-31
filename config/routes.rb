@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :tracks
 
+  map.kmx_file '/tracks/:id.kmz', :controller => "tracks", :action => "kmz_file"
   map.resources :tracks
 
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'

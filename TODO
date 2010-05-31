@@ -1,5 +1,21 @@
-Info on welcome page
-Email motionx
-Handle weird URLs better
-Do miles/month
-Add flot...
+'R_31bd5f0ec3f4c8d0f8b10768df07150c'
+
+TWEAKS
+  Do miles/month
+  Add flot...
+  Add totals to home page.  Total tracks, total users, total distance
+  Info on welcome page
+
+IMPROVEMENTS
+  Save files to GridStore (with griddle), then serve those files instead of motionx ones, which will disappear.
+  Add ability to add tag to tracks
+  Add ability to edit/rename tracks
+
+READ FROM TWITTER
+  Read from twitter
+  Sign up for heroku cron
+
+READ FROM EMAIL
+  Get gmail address/addresses
+  Sign up for heroku cron
+

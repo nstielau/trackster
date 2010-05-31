@@ -5,6 +5,7 @@ require 'uri'
 
 class Track
   include MongoMapper::Document
+  include Griddle::HasGridAttachment
 
   key :name, String
   key :distance, Fixnum
@@ -33,28 +34,27 @@ class Track
   key :formatted_min_alt, String
   key :formatted_start_date, String
   key :note, String
-  key :kmz_url, String
-  key :gmaps_url, String
   timestamps!
+
+  has_grid_attachment :kmz_file
+  has_grid_attachment :gpx_file
 
   belongs_to :user
 
   validates_uniqueness_of :motionx_id
 
-  def self.parse_track(url)
-    addl_props = {}
-    if url.match("maps.google.com")
-      addl_props[:gmaps_url] = url
-      url = parse_motionx_url_from_gmaps_url(url)
-    end
-    addl_props[:kmz_url] = url
-    raise BadURLError if url.nil?
-    file = open(url)
-    raise BadKMZFileError if file.path.nil?
-    result = read_motionx_zip_data(file.path)
-    file.delete
-    raise BadKMZParseError if result.nil?
-    self.create(result.merge(addl_props))
+  def self.create_from_kmz_url(url)
+    url = parse_motionx_url_from_gmaps_url(url) if url.match("maps.google.com")
+    track = self.new(:kmz_file => open(url))
+    track.save
+    track.update_from_kmz!
+    track
+  end
+
+  def self.create_from_share_email(gpx_file, kmz_file)
+    track = self.create(:kmz_file => kmz_file, :gpx_file => gpx_file)
+    track.update_from_kmz!
+    track
   end
 
   def unformatted_location_start_lon
@@ -71,20 +71,30 @@ class Track
     a.to_s
   end
 
+  def update_from_kmz!
+    tmp = Tempfile.new("kmz")
+    tmp <<  kmz_file.file.read
+    tmp.close
+    result = read_motionx_zip_data(tmp.path)
+    tmp.delete
+    update_attributes(result)
+  end
+
   private
 
   def self.parse_motionx_url_from_gmaps_url(url)
     URI::parse(url).query.split("&").select{|x| x.match("q=")}[0].sub("q=", "")
   end
 
-  def self.read_motionx_zip_data(file)
+  def read_motionx_zip_data(file)
     result = nil
+    Rails.logger.error("File: #{file}")
     Zip::ZipFile.open(file) do |zip_file|
      zip_file.each do |f|
        if f.to_s.match("xml")
          kml = f.get_input_stream.read
          hash = CobraVsMongoose.xml_to_hash(kml)
-         raise WaypointNotTrackError.new if hash["waypoint"]
+         raise TrackError.new("KMZ file is for a waypoint, not a track.") if hash["waypoint"]
          result = {
            :duration => hash["track"]["@duration"],
            :distance => hash["track"]["@distance"],
@@ -122,7 +132,4 @@ class Track
   end
 end
 
-class BadKMZFileError < StandardError; end
-class WaypointNotTrackError < StandardError; end
-class BadURLError < StandardError; end
-class BadKMZParseError < StandardError; end
+class TrackError < StandardError; end

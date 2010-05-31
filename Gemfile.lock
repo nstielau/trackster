@@ -1,5 +1,9 @@
 --- 
 dependencies: 
+  mongo: 
+    group: 
+    - :default
+    version: = 1.0.0
   bson_ext: 
     group: 
     - :default
@@ -11,7 +15,11 @@ dependencies:
   mongo_mapper: 
     group: 
     - :default
-    version: = 0.7.5
+    version: = 0.7.6
+  griddle: 
+    group: 
+    - :default
+    version: = 0.1.2
   crack: 
     group: 
     - :default
@@ -20,6 +28,10 @@ dependencies:
     group: 
     - :default
     version: = 0.0.2
+  mime-types: 
+    group: 
+    - :default
+    version: = 1.16
   exceptional: 
     group: 
     - :default
@@ -28,14 +40,14 @@ dependencies:
     group: 
     - :default
     version: = 0.5.0
-  alchemist: 
-    group: 
-    - :default
-    version: = 0.1.2
   rubyzip: 
     group: 
     - :default
     version: ">= 0"
+  alchemist: 
+    group: 
+    - :default
+    version: = 0.1.2
   twitter: 
     group: 
     - :default
@@ -45,11 +57,9 @@ specs:
     version: 0.7.6
 - rubyzip: 
     version: 0.9.4
-- activesupport: 
-    version: 2.3.5
 - alchemist: 
     version: 0.1.2
-- actionmailer: 
+- activesupport: 
     version: 2.3.5
 - exceptional: 
     version: 2.0.14
@@ -59,8 +69,12 @@ specs:
     version: 1.0.1
 - actionpack: 
     version: 2.3.5
+- actionmailer: 
+    version: 2.3.5
 - crack: 
     version: 0.1.6
+- mime-types: 
+    version: "1.16"
 - cobravsmongoose: 
     version: 0.0.2
 - jnunemaker-validatable: 
@@ -71,25 +85,29 @@ specs:
     version: 0.4.0
 - rake: 
     version: 0.8.7
-- activerecord: 
-    version: 2.3.5
 - httparty: 
     version: 0.5.2
 - twitter: 
     version: 0.9.5
 - bitly: 
     version: 0.5.0
-- bson_ext: 
-    version: 1.0.1
+- activerecord: 
+    version: 2.3.5
 - activeresource: 
     version: 2.3.5
 - rails: 
     version: 2.3.5
+- bson_ext: 
+    version: 1.0.1
 - mongo: 
     version: "1.0"
+- plucky: 
+    version: 0.1.1
 - mongo_mapper: 
-    version: 0.7.5
-hash: 4d256aaba76c531825c1b658ab198fd21881804e
+    version: 0.7.6
+- griddle: 
+    version: 0.1.2
+hash: 653c79376cb27b090f3737a1297cd81be291fb58
 sources: 
 - Rubygems: 
     uri: http://gems.rubyforge.org

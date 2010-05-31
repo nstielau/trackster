@@ -1,5 +1,12 @@
 class TracksController < ApplicationController
-  before_filter :login_required
+  before_filter :login_required, :except => :kmz_file
+
+  def kmz_file
+    @track = Track.find(params[:id])
+    response.headers['Content-Type'] = 'application/vnd.google-earth.kmz'
+    response.headers['Content-Disposition'] = "attachment; filename=#{@track.id}.kmz"
+    render :text => @track.kmz_file.file.read
+  end
 
   # GET /tracks
   # GET /tracks.xml
@@ -37,7 +44,7 @@ class TracksController < ApplicationController
   # POST /tracks
   # POST /tracks.xml
   def create
-    @track = Track.parse_track(params[:url])
+    @track = Track.create_from_kmz_url(params[:url])
     current_user.tracks << @track
 
     respond_to do |format|
