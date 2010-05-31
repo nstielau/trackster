@@ -33,11 +33,13 @@ class Track
   key :formatted_min_alt, String
   key :formatted_start_date, String
   key :note, String
-  key :kmx_url, String
+  key :kmz_url, String
   key :gmaps_url, String
   timestamps!
 
   belongs_to :user
+
+  validates_uniqueness_of :motionx_id
 
   def self.parse_track(url)
     addl_props = {}
@@ -45,6 +47,7 @@ class Track
       addl_props[:gmaps_url] = url
       url = parse_motionx_url_from_gmaps_url(url)
     end
+    raise DuplicateMotionxIdError if TwitterTrack.first(:kmz_url => url)
     addl_props[:kmz_url] = url
     raise BadURLError if url.nil?
     file = open(url)
@@ -52,7 +55,7 @@ class Track
     result = read_motionx_zip_data(file.path)
     file.delete
     raise BadKMZParseError if result.nil?
-    Track.create(result.merge(addl_props))
+    self.create(result.merge(addl_props))
   end
 
   def unformatted_location_start_lon
@@ -124,3 +127,4 @@ class BadKMZFileError < StandardError; end
 class WaypointNotTrackError < StandardError; end
 class BadURLError < StandardError; end
 class BadKMZParseError < StandardError; end
+class DuplicateMotionxIdError < StandardError; end
