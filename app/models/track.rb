@@ -44,15 +44,8 @@ class Track
   validates_uniqueness_of :motionx_id
 
   def self.create_from_kmz_url(url)
-    url = parse_motionx_url_from_gmaps_url(url) if url.match("maps.google.com")
-    track = self.new(:kmz_file => open(url))
+    track = self.new(:kmz_file => open(parse_motionx_url_from_gmaps_url(url)))
     track.save
-    track.update_from_kmz!
-    track
-  end
-
-  def self.create_from_share_email(gpx_file, kmz_file)
-    track = self.create(:kmz_file => kmz_file, :gpx_file => gpx_file)
     track.update_from_kmz!
     track
   end
@@ -73,18 +66,18 @@ class Track
 
   def update_from_kmz!
     tmp = Tempfile.new("kmz")
-    tmp <<  kmz_file.file.read
+    tmp << kmz_file.file.read
     tmp.close
     result = read_motionx_zip_data(tmp.path)
     tmp.delete
     update_attributes(result)
   end
 
-  private
-
   def self.parse_motionx_url_from_gmaps_url(url)
-    URI::parse(url).query.split("&").select{|x| x.match("q=")}[0].sub("q=", "")
+    url.match("maps.google.com") ? URI::parse(url).query.split("&").select{|x| x.match("q=")}[0].sub("q=", "") : url
   end
+
+  private
 
   def read_motionx_zip_data(file)
     result = nil
