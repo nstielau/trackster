@@ -9,8 +9,6 @@ class UsersControllerTest < ActionController::TestCase
   # Then, you can remove it from this and the units test.
   include AuthenticatedTestHelper
 
-  fixtures :users
-
   def test_should_allow_signup
     assert_difference 'User.count' do
       create_user
@@ -49,9 +47,7 @@ class UsersControllerTest < ActionController::TestCase
       assert_response :success
     end
   end
-  
 
-  
 
   protected
     def create_user(options = {})
