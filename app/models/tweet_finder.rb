@@ -1,0 +1,36 @@
+require 'twitter'
+require 'bitly'
+
+class TweetFinder
+  def self.reset_max_twitter_id
+    Meta.get_instance.last_twitter_update = 0
+    Meta.get_instance.save
+  end
+
+  def self.find_tweets
+    puts "Finding tweets"
+    max_id = Meta.get_instance.last_twitter_update.to_i
+    results = Twitter::Search.new("#motionx").since(Meta.get_instance.last_twitter_update.to_i).each do |r|
+      max_id = r.id if r.id > max_id
+      if matches = r.text.match(/http.*$/)
+        Bitly.use_api_version_3
+        begin
+          long_url = Bitly.new(BITLY_USERNAME, BITLY_KEY).expand(matches[0]).long_url
+          if long_url && long_url.match(/http:\/\/maps.google.com.*http:\/\/api.motionxlive.com.*/)
+            puts "Parsing #{long_url}"
+            tt = TwitterTrack.create_from_kmz_url(long_url)
+            puts "Done parsing #{tt}"
+          else
+            puts "Skipping #{long_url}, it doesn't seem to be a motionx url"
+          end
+
+          puts "End"
+        rescue => e
+          puts "Error: #{e}"
+        end
+      end
+    end
+    Meta.get_instance.last_twitter_update = max_id
+    Meta.get_instance.save
+  end
+end
