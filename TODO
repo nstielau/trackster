@@ -5,6 +5,10 @@ TWEAKS
   Add flot...
   Add totals to home page.  Total tracks, total users, total distance
   Info on welcome page
+  Add exclaimer to signup page
+  Add alpha badge
+  Add potential user email form instead of signup? a la private beta?
+
 
 IMPROVEMENTS
   Save files to GridStore (with griddle), then serve those files instead of motionx ones, which will disappear.
