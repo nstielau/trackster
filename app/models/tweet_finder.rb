@@ -27,8 +27,9 @@ class TweetFinder
 
           puts "End"
         rescue => e
-          puts "Error: #{e}"
-          raise e
+          puts "Error: "
+          puts e.inspect
+          puts e.backtrace
         end
       end
     end
