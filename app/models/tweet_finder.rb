@@ -11,6 +11,7 @@ class TweetFinder
     max_id = Meta.get_instance.last_twitter_update.to_i
     puts "Finding tweets with an ID > #{max_id}"
     results = Twitter::Search.new("#motionx").since(max_id).each do |r|
+      puts
       puts "Examiing tweet ##{r.id}: #{r.text}"
       max_id = r.id if r.id > max_id
       if matches = r.text.match(/http.*$/)
@@ -24,12 +25,12 @@ class TweetFinder
           else
             puts "Skipping #{long_url}, it doesn't seem to be a motionx url"
           end
-
-          puts "End"
         rescue => e
           puts "Error: "
           puts e.inspect
-          puts e.backtrace
+          e.backtrace.each do |l|
+            puts "  #{l}"
+          end
         end
       end
     end
