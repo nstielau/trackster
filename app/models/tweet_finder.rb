@@ -8,7 +8,6 @@ class TweetFinder
   end
 
   def self.find_tweets
-    puts "Finding tweets"
     max_id = Meta.get_instance.last_twitter_update.to_i
     results = Twitter::Search.new("#motionx").since(Meta.get_instance.last_twitter_update.to_i).each do |r|
       max_id = r.id if r.id > max_id
