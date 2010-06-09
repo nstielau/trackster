@@ -9,7 +9,8 @@ class TweetFinder
 
   def self.find_tweets
     max_id = Meta.get_instance.last_twitter_update.to_i
-    results = Twitter::Search.new("#motionx").since(Meta.get_instance.last_twitter_update.to_i).each do |r|
+    puts "Finding tweets with an ID > #{max_id}"
+    results = Twitter::Search.new("#motionx").since(max_id).each do |r|
       max_id = r.id if r.id > max_id
       if matches = r.text.match(/http.*$/)
         Bitly.use_api_version_3
@@ -26,6 +27,7 @@ class TweetFinder
           puts "End"
         rescue => e
           puts "Error: #{e}"
+          raise e
         end
       end
     end
