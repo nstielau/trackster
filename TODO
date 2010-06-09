@@ -16,8 +16,7 @@ IMPROVEMENTS
   Add ability to edit/rename tracks
 
 READ FROM TWITTER
-  Read from twitter
-  Sign up for heroku cron
+  Verify it works. cron logs, TwitterTrack count
 
 READ FROM EMAIL
   Sign up for heroku cron
