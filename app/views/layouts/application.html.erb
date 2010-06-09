@@ -112,7 +112,12 @@
                     There are <%= Track.count + TwitterTrack.count -%> tracks.
                   </p>
                   <p>
-                    There are <%= User.count -%> users.
+                    <% user_count = User.count %>
+                    <% if user_count == 1 %>
+                      There is 1 user, and he is awesome.
+                    <% else %>
+                      There are <%= User.count -%> users.
+                    <% end %>
                   </p>
             </div>
     <div id="footer-flickr" class="footer-column">
