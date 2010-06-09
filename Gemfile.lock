@@ -1,66 +1,70 @@
 --- 
 dependencies: 
-  mongo: 
-    group: 
-    - :default
-    version: = 1.0.0
   bson_ext: 
     group: 
     - :default
     version: = 1.0.1
-  rails: 
+  mongo: 
     group: 
     - :default
-    version: = 2.3.5
+    version: = 1.0.0
   mongo_mapper: 
     group: 
     - :default
     version: = 0.7.6
+  rails: 
+    group: 
+    - :default
+    version: = 2.3.5
+  ruby-gmail: 
+    group: 
+    - :default
+    version: = 0.2.1
   griddle: 
     group: 
     - :default
     version: = 0.1.2
-  crack: 
-    group: 
-    - :default
-    version: = 0.1.6
-  cobravsmongoose: 
-    group: 
-    - :default
-    version: = 0.0.2
   mime-types: 
     group: 
     - :default
     version: = 1.16
-  exceptional: 
+  cobravsmongoose: 
     group: 
     - :default
-    version: = 2.0.14
+    version: = 0.0.2
+  crack: 
+    group: 
+    - :default
+    version: = 0.1.6
   bitly: 
     group: 
     - :default
     version: = 0.5.0
-  rubyzip: 
+  exceptional: 
     group: 
     - :default
-    version: ">= 0"
+    version: = 2.0.14
   alchemist: 
     group: 
     - :default
     version: = 0.1.2
+  rubyzip: 
+    group: 
+    - :default
+    version: ">= 0"
   twitter: 
     group: 
     - :default
     version: = 0.9.5
 specs: 
-- yajl-ruby: 
-    version: 0.7.6
 - rubyzip: 
     version: 0.9.4
-- alchemist: 
-    version: 0.1.2
 - activesupport: 
     version: 2.3.5
+- alchemist: 
+    version: 0.1.2
+- yajl-ruby: 
+    version: 0.7.6
 - exceptional: 
     version: 2.0.14
 - bson: 
@@ -71,18 +75,24 @@ specs:
     version: 2.3.5
 - actionmailer: 
     version: 2.3.5
+- cobravsmongoose: 
+    version: 0.0.2
 - crack: 
     version: 0.1.6
 - mime-types: 
     version: "1.16"
-- cobravsmongoose: 
-    version: 0.0.2
 - jnunemaker-validatable: 
     version: 1.8.4
 - hashie: 
     version: 0.2.0
 - oauth: 
     version: 0.4.0
+- polyglot: 
+    version: 0.3.1
+- treetop: 
+    version: 1.4.7
+- mail: 
+    version: 2.2.1
 - rake: 
     version: 0.8.7
 - httparty: 
@@ -107,7 +117,11 @@ specs:
     version: 0.7.6
 - griddle: 
     version: 0.1.2
-hash: 653c79376cb27b090f3737a1297cd81be291fb58
+- shared-mime-info: 
+    version: "0.1"
+- ruby-gmail: 
+    version: 0.2.1
+hash: 20c74204106298eac6170c8217d6c96c1517f6d9
 sources: 
 - Rubygems: 
     uri: http://gems.rubyforge.org

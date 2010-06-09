@@ -4,7 +4,3 @@ namespace :twitter do
     TweetFinder.find_tweets
   end
 end
-
-task :cron do
-  Rake::Task['twitter:update'].invoke
-end

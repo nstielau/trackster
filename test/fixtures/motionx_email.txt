@@ -1,0 +1,257 @@
+
+Delivered-To: nick.stielau@gmail.com
+Received: by 10.229.192.195 with SMTP id dr3cs230413qcb;
+        Mon, 24 May 2010 11:23:11 -0700 (PDT)
+Received: by 10.224.65.193 with SMTP id k1mr3341070qai.158.1274725390523;
+        Mon, 24 May 2010 11:23:10 -0700 (PDT)
+Return-Path: <noreply@motionx.com>
+Received: from host.motionx.com (mail.motionx.com [67.225.166.32])
+        by mx.google.com with ESMTP id 7si4616284ywh.118.2010.05.24.11.23.10;
+        Mon, 24 May 2010 11:23:10 -0700 (PDT)
+Received-SPF: pass (google.com: best guess record for domain of noreply@motionx.com designates 67.225.166.32 as permitted sender) client-ip=67.225.166.32;
+Authentication-Results: mx.google.com; spf=pass (google.com: best guess record for domain of noreply@motionx.com designates 67.225.166.32 as permitted sender) smtp.mail=noreply@motionx.com
+Received: from [67.227.173.82] (port=37363 helo=web01.mymotionx.com)
+	by host.motionx.com with esmtpa (Exim 4.69)
+	(envelope-from <noreply@motionx.com>)
+	id 1OGcIk-0003GB-9J
+	for nick.stielau@gmail.com; Mon, 24 May 2010 14:22:58 -0400
+Date: Mon, 24 May 2010 11:23:09 -0700 (PDT)
+From: noreply@motionx.com
+To: nick.stielau@gmail.com
+Message-ID: <545343912.70241274725389894.JavaMail.fpadm@web01.mymotionx.com>
+Subject: MotionX-GPS Track: Coworking your
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="a2969aefb451423c9f50ffee80464e9c"
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - host.motionx.com
+X-AntiAbuse: Original Domain - gmail.com
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - motionx.com
+
+--a2969aefb451423c9f50ffee80464e9c
+Content-Type: text/html; charset=UTF-8
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Coworking your</title>
+  </head>
+  <body style="font-family:Arial, Helvetica, sans-serif;">
+    <p>
+      Hello,
+    </p>
+
+    <p>
+      Nick uses MotionX-GPS on the iPhone 3G or 3GS and is sharing with you the following track:
+    </p>
+
+    <div style="border:solid; border-width:1px; border-color:#000000; width:308px; padding:5px;">
+      <strong>Comment:</strong>
+    </div>
+
+    <p>
+      <br />
+    </p>
+    <div style="border:solid; border-width:1px; border-color:#000000; width:318px;">
+      <table cellpadding="3" cellspacing="0" border="0" width="100%">
+        <tr bgcolor="#E3E3E3">
+          <td colspan="2">
+            <strong>Name:</strong>
+          </td>
+          <td>
+            Coworking your
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <strong>Date:</strong>
+          </td>
+          <td>
+            May 24, 2010 10:14 am
+          </td>
+        </tr>
+        <tr bgcolor="#E3E3E3">
+          <td colspan="2">
+            <strong>Map:</strong><br />
+            <span style="font-size: 10px">(valid until Jun 23, 2010)</span>
+          </td>
+          <td>
+            <a href="http://maps.google.com/?t=p&z=15&ll=37.78953170776367,-122.44117736816406&q=http://api.motionxlive.com/motionx-remote/api/gps/host/a75f5ef1-8c3a-4fff-8c5f-4752d9658c2e">Google Maps</a>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <strong>Distance:</strong>
+          </td>
+          <td>
+            4.37 miles
+          </td>
+        </tr>
+        <tr bgcolor="#E3E3E3">
+          <td colspan="2">
+            <strong>Elapsed Time:</strong>
+          </td>
+          <td>
+            1:07:28
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <strong>Avg Speed:</strong>
+          </td>
+          <td>
+            3.9 mph
+          </td>
+        </tr>
+        <tr bgcolor="#E3E3E3">
+          <td colspan="2">
+            <strong>Max Speed:</strong>
+          </td>
+          <td>
+            18.1 mph
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <strong>Avg Pace:</strong>
+          </td>
+          <td>
+            15' 25" per mile
+          </td>
+        </tr>
+        <tr bgcolor="#E3E3E3">
+          <td colspan="2">
+            <strong>Min Altitude:</strong>
+          </td>
+          <td>
+            3 ft
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <strong>Max Altitude:</strong>
+          </td>
+          <td>
+            69 ft
+          </td>
+        </tr>
+        <tr bgcolor="#E3E3E3">
+          <td colspan="2">
+            <strong>Start Time:</strong>
+          </td>
+          <td>
+            2010-05-24T17:14:22Z
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2"><strong>Start Location:</strong></td>
+          <td></td>
+        </tr>
+        <tr bgcolor="#E3E3E3">
+          <td>&nbsp;</td>
+          <td>Latitude:</td>
+          <td>37Âº 47' 22" N
+</td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>Longitude:</td>
+          <td>122Âº 26' 28" W
+</td>
+        </tr>
+        <tr bgcolor="#E3E3E3">
+          <td colspan="2"><strong>End Location:</strong></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>Latitude:</td>
+          <td>37Âº 46' 25" N
+</td>
+        </tr>
+        <tr bgcolor="#E3E3E3">
+          <td>&nbsp;</td>
+          <td>Longitude:</td>
+          <td>122Âº 24' 54" W
+</td>
+        </tr>
+      </table>
+    </div>
+    <p>
+      &nbsp;
+    </p>
+
+<p>
+There are two files attached to this email:
+</p>
+
+    <p>
+      <strong>"Coworking your.kmz"</strong><br />
+      A Google KMZ track that can be displayed in Google Earth or Google Maps.
+    </p>
+
+    <p>
+      <strong>"Coworking your.gpx"</strong><br />
+      An Open Standard track that can be displayed by select mapping software.
+    </p>
+
+    <p>
+      &nbsp;
+    </p>
+    <div style="border:solid; border-width:1px; border-color:#000000; width:96%; padding:5px;">
+      <p style="text-align:center">
+        <strong><u>MotionX-GPS Commonly Asked Questions</u></strong>
+      </p>
+      <ol>
+        <li>
+          <strong>What is MotionX-GPS?</strong><br />
+          MotionX-GPS is the essential GPS application for outdoor enthusiasts. It puts an easy-to-use, state-of-the-art handheld GPS on your iPhone 3G or 3GS.
+        </li>
+        <li style="list-style: none">
+          <br />
+        </li>
+        <li>
+          <strong>Can I use MotionX-GPS?</strong><br />
+          Sure! <a href="http://itunes.apple.com/us/app/motionx-gps/id299949744?mt=8">MotionX-GPS</a> can be downloaded from the iTunes App Store. Or try the free version, <a href="http://itunes.apple.com/us/app/motionx-gps-lite/id293935935?mt=8">MotionX-GPS Lite</a>.
+        </li>
+        <li style="list-style: none">
+          <br />
+        </li>
+        <li>
+          <strong>How can I display tracks in Google Earth?</strong><br />
+          Follow the directions on the Google Earth web site to download and install the Google Earth program. Save the attached "Coworking your.kmz" file to your computer. Launch Google Earth, select File, Open, and open the saved "Coworking your.kmz" file.
+        </li>
+        <li style="list-style: none">
+          <br />
+        </li>
+        <li>
+          <strong>This email was forwarded to me. Where are the attachments?</strong><br />
+          Some e-mail programs do not include the original attachments by default when forwarding an e-mail. In this case, the sender must reattach the original files for them to be included.
+        </li>
+      </ol>
+    </div>
+    <p>
+      &nbsp;
+    </p>
+
+
+    <p>
+      Please contact MotionX <a href="http://www.motionx.com/faq/motionx-gps/">customer support</a> with any comments or questions.
+    </p>
+    <p>
+      All the best,
+    </p>
+    <p>
+      The <a href="http://www.motionx.com/">MotionX</a> Team
+    </p>
+    <div style="background-color:#999999; width:100%; height:1px;"></div>
+    <p style="font-size: x-small">
+      US and Foreign Patents Granted and Pending. Fullpower&reg; is a registered trademark of Fullpower Technologies, Inc. MotionX&trade; is a trademark of Fullpower Technologies, Inc. &copy; Copyright 2003 - 2010 Fullpower Technologies, Inc. All rights reserved.
+    </p>
+    <p style="font-size: x-small">
+ver: GPS/11.0
+ref-id: ee17f218-74c2-44fd-abd3-ccc808718201
+    </p>
+  </body>
+</html>
