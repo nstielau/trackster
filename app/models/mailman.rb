@@ -22,6 +22,7 @@ class Mailman
           # Get User
           user = Mailman.parse_user_from_address(email.to)
           raise "Can't find user for #{email.inspect}" if user.nil?
+          puts "Assigning email to #{user.inspect}"
 
           # Create track
           track = Track.new(:kmz_file => tmp_kmz_file, :gpx_file => tmp_gpx_file, :user_id => user.id)
