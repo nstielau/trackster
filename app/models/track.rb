@@ -41,7 +41,7 @@ class Track
 
   belongs_to :user
 
-  validates_uniqueness_of :motionx_id
+  validates_uniqueness_of :motionx_id, :allow_nil => :true
 
   def self.create_from_kmz_url(url)
     track = self.new(:kmz_file => open(parse_motionx_url_from_gmaps_url(url)))

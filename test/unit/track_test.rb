@@ -29,6 +29,13 @@ class TrackTest < ActiveSupport::TestCase
     assert !b.errors.empty?
   end
 
+  test "motionx_id is unique, but allows nil" do
+    a = Track.create(:motionx_id => nil)
+    b = Track.create(:motionx_id => nil)
+    assert a.errors.empty?
+    assert b.errors.empty?
+  end
+
   test "can parse Motionx url from gmaps url" do
     orig_url = "http://maps.google.com/?t=p&z=15&ll=37.78985595703125,-122.44378662109375&q=http://api.motionxlive.com/motionx-remote/api/gps/host/18af69f2-2794-43ca-8494-eae66efc958b"
     parsed_url = Track.parse_motionx_url_from_gmaps_url(orig_url)
