@@ -77,6 +77,52 @@ class Track
     url.match("maps.google.com") ? URI::parse(url).query.split("&").select{|x| x.match("q=")}[0].sub("q=", "") : url
   end
 
+  def self.total_distance
+    sum('distance')
+  end
+
+  def self.total_duration
+    sum('duration')
+  end
+
+  def self.sum(term)
+    result = collection.group(nil, {},{"total_#{term}" => 0}, "function(obj,prev){prev.total_#{term} += obj.#{term}}")
+    result.first.nil? ? 0 : result.first["total_#{term}"]
+  end
+
+  def self.generate_aggregates
+    map = <<-EOS
+    function() {
+      var date = new Date(this.created_utc * 1000);
+      var year = date.getFullYear();
+      var month = date.getMonth();
+      var day = date.getDate();
+      emit("totals", {year: null, month: null, day: null, distance: this.distance, duration: this.duration, max_speed: this.max_speed, track_count: 1, interval: 'alltime'});
+      emit(year, {year: year, month: null, day: null, distance: this.distance, duration: this.duration, max_speed: this.max_speed, track_count: 1, interval: 'year'});
+      emit(year + "-" + month, {year: year, month: date.getMonth(), day: null, distance: this.distance, duration: this.duration, max_speed: this.max_speed, track_count: 1, interval: 'month'});
+      emit(year + "-" + month + "-" + day, {year: year, month: date.getMonth(), day: day, distance: this.distance, duration: this.duration, max_speed: this.max_speed, track_count: 1, interval: 'day'});
+    }
+EOS
+    reduce = <<-EOS
+    function(month_year, values_array) {
+      var total_distance = 0;
+      var total_duration = 0;
+      var max_max_speed = 0;
+      var num_tracks = 0;
+      values_array.forEach(function(f) {
+        total_distance += f.distance;
+        total_duration += (f.duration * 1);
+        if (f.max_speed > max_max_speed) {
+          max_max_speed = f.max_speed;
+        }
+        num_tracks += f.track_count;
+      });
+      return {year: values_array[0].year, month: values_array[0].month, day: values_array[0].day, distance: total_distance, duration: total_duration, max_speed: max_max_speed, track_count: num_tracks, interval: values_array[0].interval};
+    }
+EOS
+    collection.map_reduce(map, reduce, :out => "#{self.to_s.downcase}_aggregates")
+  end
+
   private
 
   def read_motionx_zip_data(file)
