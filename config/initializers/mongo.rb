@@ -9,5 +9,5 @@ elsif Rails.env == "test"
 else
   MongoMapper.connection = Mongo::Connection.new("pearl.local.mongohq.com", "27029")
   MongoMapper.database = "motionx_production"
-  MongoMapper.database.authenticate(ENV['MONGOHQ_USERNAME'], ENV['MONGOHQ_PASSWORD'])
+  MongoMapper.database.authenticate(ENV['TRACKSTER_MONGOHQ_USERNAME'], ENV['TRACKSTER_MONGOHQ_PASSWORD'])
 end
