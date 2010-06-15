@@ -39,7 +39,7 @@ class Mailman
 
           email.archive!
         rescue => e
-          puts "Error: "
+          puts "Error Processing Emails: "
           puts e.inspect
           e.backtrace.each{|l| puts "  #{l}"}
         end
