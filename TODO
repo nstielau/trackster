@@ -1,11 +1,8 @@
-'R_31bd5f0ec3f4c8d0f8b10768df07150c'
-
 TWEAKS
   Do miles/month
   Add flot...
-  Add totals to home page.  Total tracks, total users, total distance
+  Add totals to home page.  Total distance
   Info on welcome page
-  Add exclaimer to signup page
   Add alpha badge
   Add potential user email form instead of signup? a la private beta?
 
@@ -16,8 +13,8 @@ IMPROVEMENTS
   Add ability to edit/rename tracks
 
 READ FROM TWITTER
-  Verify it works. cron logs, TwitterTrack count
 
 READ FROM EMAIL
-  Sign up for heroku cron
+  Uncomment email from cron tab
+  Somehow verify user from email
 
