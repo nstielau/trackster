@@ -6,7 +6,7 @@ class Mailman
     Gmail.new(TRACKSTER_GMAIL_USERNAME, TRACKSTER_GMAIL_PASSWORD) do |gmail|
       inbox_count = gmail.inbox.count
       puts "There are #{inbox_count} emails in the inbox"
-      gmail.inbox.emails(:from => "no-reply@motionx.com").each do |email|
+      gmail.inbox.emails(:from => "noreply@motionx.com").each do |email|
         begin
           puts "Email: #{email.inspect}"
 
