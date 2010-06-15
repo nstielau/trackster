@@ -7,7 +7,7 @@ elsif Rails.env == "test"
   MongoMapper.connection = Mongo::Connection.new
   MongoMapper.database = "motionxdb_test"
 else
-  MongoMapper.connection = Mongo::Connection.new("flame.mongohq.com", "27066")
-  MongoMapper.database = "motionx"
-  MongoMapper.database.authenticate("nstielau", "manifest")
+  MongoMapper.connection = Mongo::Connection.new("pearl.local.mongohq.com", "27029")
+  MongoMapper.database = "motionx_production"
+  MongoMapper.database.authenticate(ENV['MONGOHQ_USERNAME'], ENV['MONGOHQ_PASSWORD'])
 end
