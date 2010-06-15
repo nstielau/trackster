@@ -20,7 +20,8 @@ class Mailman
           tmp_kmz_file << kmz_attachment.read
 
           # Get User
-          user = Mailman.parse_user_from_address(email.to)
+          trackster_email = (email.to.is_a? Array) ? email.to.select{|a| a.match("trackster.org")}.first : email.to
+          user = Mailman.parse_user_from_address(trackster_email)
           raise "Can't find user for #{email.inspect}" if user.nil?
           puts "Assigning email to #{user.inspect}"
 
