@@ -1,0 +1,42 @@
+<%
+@page_title = "Twitter Dashboard"
+%>
+<p>
+  This page shows some stats about the GPS tracked shared on Twitter.
+</p>
+
+  <h3>Total distance tracked by <%= @interval -%></h3>
+  <div id="distance_graph" style="width:600px;height:300px"></div>
+  <h3>Total duration tracked by <%= @interval -%></h3>
+  <div id="duration_graph" style="width:600px;height:300px"></div>
+  <h3>Total tracks created by <%= @interval -%></h3>
+  <div id="track_count_graph" style="width:600px;height:300px"></div>
+
+<%= javascript_include_tag 'flot/jquery.flot.min.js'%>
+<script id="source" language="javascript" type="text/javascript">
+$(function () {
+var distance_data = [
+<% @twitter_data.each do |x|%>
+  <%= "[#{x[@interval]}, #{x['distance']}],"-%>
+<% end %>
+];
+
+var duration_data = [
+<% @twitter_data.each do |x|%>
+  <%= "[#{x[@interval]}, #{x['duration']}],"-%>
+<% end %>
+];
+
+var track_count_data = [
+<% @twitter_data.each do |x|%>
+  <%= "[#{x[@interval]}, #{x['track_count']}],"-%>
+<% end %>
+];
+
+    $.plot($("#track_count_graph"), [{data: track_count_data, bars: { show: true }}]);
+    $.plot($("#distance_graph"), [{data: distance_data, bars: { show: true }}]);
+    $.plot($("#duration_graph"), [{data: duration_data, bars: { show: true }}]);
+});
+</script>
+
+

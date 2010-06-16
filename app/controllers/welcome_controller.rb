@@ -7,4 +7,12 @@ class WelcomeController < ApplicationController
 
   def help
   end
+
+  def twitter_dashboard
+    @interval = 'day'
+    options = {"value.interval" => @interval}
+    options['value.month'] = Time.now.month-1 if @interval == 'day'
+    options['value.year'] = Time.now.year if @interval != 'year'
+    @twitter_data = MongoMapper.database.collection("twittertrack_aggregates").find(options).map{|x| x["value"]}
+  end
 end

@@ -2,7 +2,7 @@ require 'mongo_mapper'
 
 if Rails.env == "development"
   MongoMapper.connection = Mongo::Connection.new
-  MongoMapper.database = "motionx_dev"
+  MongoMapper.database = "motionx_development"
 elsif Rails.env == "test"
   MongoMapper.connection = Mongo::Connection.new
   MongoMapper.database = "motionxdb_test"
