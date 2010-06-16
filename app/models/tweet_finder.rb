@@ -11,23 +11,22 @@ class TweetFinder
     max_id = Meta.get_instance.last_twitter_update.to_i
     puts "Finding tweets with an ID > #{max_id}"
     results = Twitter::Search.new("#motionx").since(max_id).each do |r|
-      puts
-      puts "Examiing tweet ##{r.id}: #{r.text}"
+      puts "  Examiing tweet ##{r.id}: #{r.text}"
       max_id = r.id if r.id > max_id
       if matches = r.text.match(/http.*$/)
         Bitly.use_api_version_3
         begin
           long_url = Bitly.new(BITLY_USERNAME, BITLY_KEY).expand(matches[0]).long_url
           if long_url && long_url.match(/http:\/\/maps.google.com.*http:\/\/api.motionxlive.com.*/)
-            puts "Parsing #{long_url}"
+            puts "  Parsing #{long_url}"
             tt = TwitterTrack.create_from_kmz_url(long_url)
             tt.kmz_file.destroy
-            puts "Done parsing #{tt}"
+            puts "  Done parsing #{tt}"
           else
-            puts "Skipping #{long_url}, it doesn't seem to be a motionx url"
+            puts "  Skipping #{long_url}, it doesn't seem to be a motionx url"
           end
         rescue => e
-          puts "Error: "
+          puts "Twitter Error: "
           puts e.inspect
           e.backtrace.each do |l|
             puts "  #{l}"

@@ -8,7 +8,7 @@ class Mailman
       puts "There are #{inbox_count} emails in the inbox"
       gmail.inbox.emails(:from => "noreply@motionx.com").each do |email|
         begin
-          puts "Email: #{email.inspect}"
+          puts "  Email: #{email.inspect}"
 
           # save attachements
           gpx_attachment = email.attachments.select{|a| a.filename.match("gpx")}.first
@@ -23,13 +23,13 @@ class Mailman
           trackster_email = (email.to.is_a? Array) ? email.to.select{|a| a.match("trackster.org")}.first : email.to
           user = Mailman.parse_user_from_address(trackster_email)
           raise "Can't find user for #{email.inspect}" if user.nil?
-          puts "Assigning email to #{user.inspect}"
+          puts "  Assigning email to #{user.inspect}"
 
           # Create track
           track = Track.new(:kmz_file => tmp_kmz_file, :gpx_file => tmp_gpx_file, :user_id => user.id)
           track.save
           track.update_from_kmz!
-          puts "Track: #{track.inspect}"
+          puts "  Track: #{track.inspect}"
 
           # Clean up tmp files
           tmp_gpx_file.close
@@ -38,6 +38,7 @@ class Mailman
           File.delete(tmp_kmz_file.path)
 
           email.archive!
+          puts
         rescue => e
           puts "Error Processing Emails: "
           puts e.inspect
