@@ -5,11 +5,11 @@
   This page shows some stats about the GPS tracked shared on Twitter.
 </p>
 
-  <h3>Total distance tracked by <%= @interval -%></h3>
+  <h3>Total distance tracked by day, for this month</h3>
   <div id="distance_graph" style="width:600px;height:300px"></div>
-  <h3>Total duration tracked by <%= @interval -%></h3>
+  <h3>Total duration tracked by day, for this month</h3>
   <div id="duration_graph" style="width:600px;height:300px"></div>
-  <h3>Total tracks created by <%= @interval -%></h3>
+  <h3>Total tracks created by day, for this month</h3>
   <div id="track_count_graph" style="width:600px;height:300px"></div>
 
 <%= javascript_include_tag 'flot/jquery.flot.min.js'%>
@@ -17,19 +17,19 @@
 $(function () {
 var distance_data = [
 <% @twitter_data.each do |x|%>
-  <%= "[#{x[@interval]}, #{x['distance']}],"-%>
+  <%= "[#{x['day']}, #{x['distance']}],"-%>
 <% end %>
 ];
 
 var duration_data = [
 <% @twitter_data.each do |x|%>
-  <%= "[#{x[@interval]}, #{x['duration']}],"-%>
+  <%= "[#{x['day']}, #{x['duration']}],"-%>
 <% end %>
 ];
 
 var track_count_data = [
 <% @twitter_data.each do |x|%>
-  <%= "[#{x[@interval]}, #{x['track_count']}],"-%>
+  <%= "[#{x['day']}, #{x['track_count']}],"-%>
 <% end %>
 ];
 

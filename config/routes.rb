@@ -11,6 +11,8 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resource :session
 
+  map.twitter_dashboard '/dashboard/twitter', :controller => 'welcome', :action => 'twitter_dashboard'
+
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
