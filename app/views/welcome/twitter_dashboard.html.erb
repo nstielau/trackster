@@ -16,26 +16,26 @@
 <script id="source" language="javascript" type="text/javascript">
 $(function () {
 var distance_data = [
-<% @twitter_data.each do |x|%>
-  <%= "[#{x['day']}, #{x['distance']}],"-%>
+<% @twitter_data.each_with_index do |x, index| %>
+  <%= "[#{Time.mktime(x['year'], x['month'], x['day']).to_i * 1000}, #{x['distance'].to_f.meters.to.miles.to_f}]," -%>
 <% end %>
 ];
 
 var duration_data = [
 <% @twitter_data.each do |x|%>
-  <%= "[#{x['day']}, #{x['duration']}],"-%>
+  <%= "[#{Time.mktime(x['year'], x['month'], x['day']).to_i * 1000}, #{x['duration']}]," -%>
 <% end %>
 ];
 
 var track_count_data = [
 <% @twitter_data.each do |x|%>
-  <%= "[#{x['day']}, #{x['track_count']}],"-%>
+  <%= "[#{Time.mktime(x['year'], x['month'], x['day']).to_i * 1000}, #{x['track_count']}]," -%>
 <% end %>
 ];
 
-    $.plot($("#track_count_graph"), [{data: track_count_data, bars: { show: true }}]);
-    $.plot($("#distance_graph"), [{data: distance_data, bars: { show: true }}]);
-    $.plot($("#duration_graph"), [{data: duration_data, bars: { show: true }}]);
+    $.plot($("#track_count_graph"), [{data: track_count_data, bars: { show: true }}], {xaxis: {mode: "time"}});
+    $.plot($("#distance_graph"), [{data: distance_data, bars: { show: true }}], {xaxis: {mode: "time"}});
+    $.plot($("#duration_graph"), [{data: duration_data, bars: { show: true }}], {xaxis: {mode: "time"}});
 });
 </script>
 

@@ -9,7 +9,6 @@ class WelcomeController < ApplicationController
   end
 
   def twitter_dashboard
-    options = {"interval" => 'day', 'month' => Time.now.month, 'year' => Time.now.year}
-    @twitter_data = TwitterTrackAggregator.new(options).result
+    @twitter_data = TwitterTrackAggregator.new({:interval => 'day', :start_time => 30.days.ago}).result
   end
 end
