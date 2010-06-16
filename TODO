@@ -1,20 +1,10 @@
 TWEAKS
   Do miles/month
-  Add flot...
-  Add totals to home page.  Total distance
+  Add Total distance to home page.
   Info on welcome page
   Add alpha badge
   Add potential user email form instead of signup? a la private beta?
 
-
 IMPROVEMENTS
-  Save files to GridStore (with griddle), then serve those files instead of motionx ones, which will disappear.
-  Add ability to add tag to tracks
-  Add ability to edit/rename tracks
-
-READ FROM TWITTER
-
-READ FROM EMAIL
-  Uncomment email from cron tab
-  Somehow verify user from email
-
+  !! Add ability to add tag to tracks
+  !! Add ability to edit/rename tracks
