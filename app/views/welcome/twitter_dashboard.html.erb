@@ -5,9 +5,9 @@
   This page shows some stats about the GPS tracked shared on Twitter.
 </p>
 
-  <h3>Total distance tracked by day, for this month</h3>
+  <h3>Total miles tracked by day, for this month</h3>
   <div id="distance_graph" style="width:600px;height:300px"></div>
-  <h3>Total duration tracked by day, for this month</h3>
+  <h3>Total hours tracked by day, for this month</h3>
   <div id="duration_graph" style="width:600px;height:300px"></div>
   <h3>Total tracks created by day, for this month</h3>
   <div id="track_count_graph" style="width:600px;height:300px"></div>
@@ -23,7 +23,7 @@ var distance_data = [
 
 var duration_data = [
 <% @twitter_data.each do |x|%>
-  <%= "[#{Time.mktime(x['year'], x['month'], x['day']).to_i * 1000}, #{x['duration']}]," -%>
+  <%= "[#{Time.mktime(x['year'], x['month'], x['day']).to_i * 1000}, #{x['duration'].to_i / 60 / 60}]," -%>
 <% end %>
 ];
 
