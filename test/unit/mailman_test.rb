@@ -17,6 +17,6 @@ class TrackTest < ActiveSupport::TestCase
   end
 
   test "mailman should return nil if no user matches" do
-    assert_equal Mailman.parse_user_from_address("tracks+bobo@something.com"), nil
+    assert_equal Mailman.parse_user_from_address("tracks+boboasdfas@something.com"), nil
   end
 end

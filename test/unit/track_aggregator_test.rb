@@ -51,5 +51,46 @@ class TrackAggregatorTest < ActiveSupport::TestCase
     assert_equal agg.select{|x| x['distance'] == 1}.size, 1
     assert_equal agg.select{|x| x['distance'] == 10}.size, 1
   end
-  #test "returns all rows if no start_time is specified and not end_time is specified"
+
+  test "returns all rows if no start_time is specified and not end_time is specified" do
+    Track.create(:distance => 1, :created_utc => 10.days.ago.to_i, :user_id => 100)
+    Track.create(:distance => 10, :created_utc => 2.days.ago.to_i, :user_id => 100)
+    Track.create(:distance => 100, :created_utc => 2.years.ago.to_i, :user_id => 100)
+    TrackAggregator.generate_aggregates
+    agg = TrackAggregator.new().result
+    assert_equal agg.size, 1
+    assert_equal agg.first['distance'], 111
+  end
+
+  test "returns all rows after start_time" do
+    Track.create(:distance => 1, :created_utc => 10.days.ago.to_i, :user_id => 100)
+    Track.create(:distance => 10, :created_utc => 2.days.ago.to_i, :user_id => 100)
+    Track.create(:distance => 100, :created_utc => 2.years.ago.to_i, :user_id => 100)
+    TrackAggregator.generate_aggregates
+    agg = TrackAggregator.new(:start_time => 1.month.ago, :interval => 'day').result
+    assert_equal agg.size, 2
+    assert_equal agg.map{|x| x['distance']}.sum, 11
+  end
+
+  test "returns all rows before end_time" do
+    Track.create(:distance => 1, :created_utc => 10.days.ago.to_i, :user_id => 100)
+    Track.create(:distance => 10, :created_utc => 2.days.ago.to_i, :user_id => 100)
+    Track.create(:distance => 100, :created_utc => 2.years.ago.to_i, :user_id => 100)
+    Track.create(:distance => 1000, :created_utc => 3.months.ago.to_i, :user_id => 100)
+    TrackAggregator.generate_aggregates
+    agg = TrackAggregator.new(:end_time => 1.month.ago, :interval => 'day').result
+    assert_equal agg.size, 2
+    assert_equal agg.map{|x| x['distance']}.sum, 1100
+  end
+
+  test "returns all rows between start_time and end_time" do
+    Track.create(:distance => 1, :created_utc => 10.days.ago.to_i, :user_id => 100)
+    Track.create(:distance => 10, :created_utc => 2.days.ago.to_i, :user_id => 100)
+    Track.create(:distance => 100, :created_utc => 2.years.ago.to_i, :user_id => 100)
+    Track.create(:distance => 1000, :created_utc => 3.months.ago.to_i, :user_id => 100)
+    TrackAggregator.generate_aggregates
+    agg = TrackAggregator.new(:start_time => 1.year.ago, :end_time => 1.month.ago, :interval => 'day').result
+    assert_equal agg.size, 1
+    assert_equal agg.first['distance'], 1000
+  end
 end

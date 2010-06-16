@@ -55,27 +55,7 @@ class TrackTest < ActiveSupport::TestCase
   test "can aggregate total distance with data" do
     Track.create(:created_utc => Time.now.to_i, :distance => 100)
     Track.create(:created_utc => Time.now.to_i, :distance => 200)
-    assert_equal TwitterTrack.total_distance, 300
-  end
-
-  test "can aggregate by month" do
-    Track.create(:created_utc => Time.now.to_i, :distance => 100)
-    Track.create(:created_utc => Time.now.to_i, :distance => 50)
-    Track.create(:created_utc => 1.month.ago, :distance => 200)
-    # [{:year => 2010, :month => 5, :distance => 150},
-    #  {:year => 2010, :month => 6, :distance => 200}]
-    assert_equal TwitterTrack.distance_by_month.class, Array
-    assert_equal TwitterTrack.distance_by_month.size, 2
-
-    assert_equal TwitterTrack.distance_by_month.first.class, Hash
-    assert_equal TwitterTrack.distance_by_month.first[:distance], 150
-    assert_equal TwitterTrack.distance_by_month.first[:year], 2010
-    assert_equal TwitterTrack.distance_by_month.first[:month], 5
-
-    assert_equal TwitterTrack.distance_by_month.last.class, Hash
-    assert_equal TwitterTrack.distance_by_month.last[:distance], 200
-    assert_equal TwitterTrack.distance_by_month.first[:year], 2010
-    assert_equal TwitterTrack.distance_by_month.first[:month], 6
+    assert_equal Track.total_distance, 300
   end
 end
 # avg_pace: "2.749279",
