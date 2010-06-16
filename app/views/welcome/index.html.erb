@@ -13,6 +13,32 @@
     <td><strong>Total Distance:</strong></td><td><%= sprintf("%.2f", @total_distance.to_f.meters.to.miles.to_f) -%> miles</td>
   </tr>
 </table>
+
+<h3>Total miles tracked by day, for this month</h3>
+<div id="distance_graph" style="width:600px;height:300px"></div>
+<h3>Total hours tracked by day, for this month</h3>
+<div id="duration_graph" style="width:600px;height:300px"></div>
+
+<%= javascript_include_tag 'flot/jquery.flot.min.js'%>
+<script id="source" language="javascript" type="text/javascript">
+$(function () {
+var distance_data = [
+<% @user_data.each_with_index do |x, index| %>
+  <%= "[#{Time.mktime(x['year'], x['month'], x['day']).to_i * 1000}, #{x['distance'].to_f.meters.to.miles.to_f}]," -%>
+<% end %>
+];
+
+var duration_data = [
+<% @user_data.each do |x|%>
+  <%= "[#{Time.mktime(x['year'], x['month'], x['day']).to_i * 1000}, #{x['duration'].to_i / 60 / 60}]," -%>
+<% end %>
+];
+
+    $.plot($("#distance_graph"), [{data: distance_data, bars: {show: true}, lines: { show: false, steps: false }}], {xaxis: {mode: "time"}});
+    $.plot($("#duration_graph"), [{data: duration_data, bars: { show: true, steps: true }}], {xaxis: {mode: "time"}});
+});
+</script>
+
 <a href="/tracks">View All Tracks</a>
 <% else %>
 <p>
