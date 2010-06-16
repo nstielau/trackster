@@ -33,9 +33,9 @@ var duration_data = [
   <%= "[#{Time.mktime(x['year'], x['month'], x['day']).to_i * 1000}, #{x['duration'].to_i / 60 / 60}]," -%>
 <% end %>
 ];
-
-    $.plot($("#distance_graph"), [{data: distance_data, bars: {show: true}, lines: { show: false, steps: false }}], {xaxis: {mode: "time"}});
-    $.plot($("#duration_graph"), [{data: duration_data, bars: { show: true, steps: true }}], {xaxis: {mode: "time"}});
+    var ms_per_day = 1000*60*60*24;
+    $.plot($("#distance_graph"), [{data: distance_data, bars: {show: true, barWidth: ms_per_day }}], {xaxis: {mode: "time"}});
+    $.plot($("#duration_graph"), [{data: duration_data, bars: {show: true, barWidth: ms_per_day }}], {xaxis: {mode: "time"}});
 });
 </script>
 
