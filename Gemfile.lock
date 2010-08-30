@@ -1,127 +1,85 @@
---- 
-dependencies: 
-  bson_ext: 
-    group: 
-    - :default
-    version: = 1.0.1
-  mongo: 
-    group: 
-    - :default
-    version: = 1.0.0
-  mongo_mapper: 
-    group: 
-    - :default
-    version: = 0.7.6
-  rails: 
-    group: 
-    - :default
-    version: = 2.3.5
-  ruby-gmail: 
-    group: 
-    - :default
-    version: = 0.2.1
-  griddle: 
-    group: 
-    - :default
-    version: = 0.1.2
-  mime-types: 
-    group: 
-    - :default
-    version: = 1.16
-  cobravsmongoose: 
-    group: 
-    - :default
-    version: = 0.0.2
-  crack: 
-    group: 
-    - :default
-    version: = 0.1.6
-  bitly: 
-    group: 
-    - :default
-    version: = 0.5.0
-  exceptional: 
-    group: 
-    - :default
-    version: = 2.0.14
-  alchemist: 
-    group: 
-    - :default
-    version: = 0.1.2
-  rubyzip: 
-    group: 
-    - :default
-    version: ">= 0"
-  twitter: 
-    group: 
-    - :default
-    version: = 0.9.5
-specs: 
-- rubyzip: 
-    version: 0.9.4
-- activesupport: 
-    version: 2.3.5
-- alchemist: 
-    version: 0.1.2
-- yajl-ruby: 
-    version: 0.7.6
-- exceptional: 
-    version: 2.0.14
-- bson: 
-    version: "1.0"
-- rack: 
-    version: 1.0.1
-- actionpack: 
-    version: 2.3.5
-- actionmailer: 
-    version: 2.3.5
-- cobravsmongoose: 
-    version: 0.0.2
-- crack: 
-    version: 0.1.6
-- mime-types: 
-    version: "1.16"
-- jnunemaker-validatable: 
-    version: 1.8.4
-- hashie: 
-    version: 0.2.0
-- oauth: 
-    version: 0.4.0
-- polyglot: 
-    version: 0.3.1
-- treetop: 
-    version: 1.4.7
-- mail: 
-    version: 2.2.1
-- rake: 
-    version: 0.8.7
-- httparty: 
-    version: 0.5.2
-- twitter: 
-    version: 0.9.5
-- bitly: 
-    version: 0.5.0
-- activerecord: 
-    version: 2.3.5
-- activeresource: 
-    version: 2.3.5
-- rails: 
-    version: 2.3.5
-- bson_ext: 
-    version: 1.0.1
-- mongo: 
-    version: "1.0"
-- plucky: 
-    version: 0.1.1
-- mongo_mapper: 
-    version: 0.7.6
-- griddle: 
-    version: 0.1.2
-- shared-mime-info: 
-    version: "0.1"
-- ruby-gmail: 
-    version: 0.2.1
-hash: 20c74204106298eac6170c8217d6c96c1517f6d9
-sources: 
-- Rubygems: 
-    uri: http://gems.rubyforge.org
+GEM
+  remote: http://gems.rubyforge.org/
+  specs:
+    actionmailer (2.3.5)
+      actionpack (= 2.3.5)
+    actionpack (2.3.5)
+      activesupport (= 2.3.5)
+      rack (~> 1.0.0)
+    activerecord (2.3.5)
+      activesupport (= 2.3.5)
+    activeresource (2.3.5)
+      activesupport (= 2.3.5)
+    activesupport (2.3.5)
+    alchemist (0.1.2)
+    bitly (0.5.0)
+      crack (>= 0.1.4)
+      httparty (>= 0.5.2)
+    bson (1.0)
+    bson_ext (1.0.1)
+    cobravsmongoose (0.0.2)
+    crack (0.1.6)
+    exceptional (2.0.14)
+    griddle (0.1.2)
+    hashie (0.2.2)
+    httparty (0.5.2)
+      crack (= 0.1.6)
+    jnunemaker-validatable (1.8.4)
+      activesupport (>= 2.3.4)
+    mail (2.2.1)
+      activesupport (>= 2.3.4)
+      mime-types
+      treetop (>= 1.4.5)
+    mime-types (1.16)
+    mongo (1.0)
+      bson (= 1.0)
+    mongo_mapper (0.7.6)
+      activesupport (>= 2.3.4)
+      jnunemaker-validatable (= 1.8.4)
+      mongo (= 1.0)
+      plucky (= 0.1.1)
+    oauth (0.4.2)
+    plucky (0.1.1)
+      mongo (= 1.0)
+    polyglot (0.3.1)
+    rack (1.0.1)
+    rails (2.3.5)
+      actionmailer (= 2.3.5)
+      actionpack (= 2.3.5)
+      activerecord (= 2.3.5)
+      activeresource (= 2.3.5)
+      activesupport (= 2.3.5)
+      rake (>= 0.8.3)
+    rake (0.8.7)
+    ruby-gmail (0.2.1)
+      mail (>= 2.2.1)
+      shared-mime-info
+    rubyzip (0.9.4)
+    shared-mime-info (0.1)
+    treetop (1.4.8)
+      polyglot (>= 0.3.1)
+    twitter (0.9.5)
+      hashie (~> 0.2.0)
+      httparty (~> 0.5.0)
+      oauth (>= 0.3.5)
+      yajl-ruby (~> 0.7.0)
+    yajl-ruby (0.7.7)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  alchemist (= 0.1.2)
+  bitly (= 0.5.0)
+  bson_ext (= 1.0.1)
+  cobravsmongoose (= 0.0.2)
+  crack (= 0.1.6)
+  exceptional (= 2.0.14)
+  griddle (= 0.1.2)
+  mime-types (= 1.16)
+  mongo (= 1.0.0)
+  mongo_mapper (= 0.7.6)
+  rails (= 2.3.5)
+  ruby-gmail (= 0.2.1)
+  rubyzip
+  twitter (= 0.9.5)
