@@ -90,7 +90,7 @@ class Track
     result.first.nil? ? 0 : result.first["total_#{term}"]
   end
 
-  private
+  #private
 
   def read_motionx_zip_data(file)
     result = nil
