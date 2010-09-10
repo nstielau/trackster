@@ -5,12 +5,14 @@
   This page shows some stats about the GPS tracked shared on Twitter.
 </p>
 
-  <h3>Total miles tracked by day, for this month</h3>
+  <h3>Total miles tracked by day, past 60 days</h3>
   <div id="distance_graph" style="width:600px;height:300px"></div>
-  <h3>Total hours tracked by day, for this month</h3>
+  <h3>Total hours tracked by day, past 60 days</h3>
   <div id="duration_graph" style="width:600px;height:300px"></div>
-  <h3>Total tracks created by day, for this month</h3>
+  <h3>Total tracks created by day, past 60 days</h3>
   <div id="track_count_graph" style="width:600px;height:300px"></div>
+  <h3>Fastest Rate by day, past 60 days</h3>
+  <div id="max_speed_graph" style="width:600px;height:300px"></div>
 
 <%= javascript_include_tag 'flot/jquery.flot.min.js'%>
 <script id="source" language="javascript" type="text/javascript">
@@ -32,10 +34,17 @@ var track_count_data = [
   <%= "[#{Time.mktime(x['year'], x['month'], x['day']).to_i * 1000}, #{x['track_count']}]," -%>
 <% end %>
 ];
+
+var max_speed_data = [
+<% @twitter_data.each do |x|%>
+  <%= "[#{Time.mktime(x['year'], x['month'], x['day']).to_i * 1000}, #{x['max_speed']}]," -%>
+<% end %>
+];
     var ms_per_day = 1000*60*60*24;
     $.plot($("#track_count_graph"), [{data: track_count_data, bars: { show: true, barWidth: ms_per_day}}], {xaxis: {mode: "time"}});
     $.plot($("#distance_graph"), [{data: distance_data, bars: { show: true, barWidth: ms_per_day}}], {xaxis: {mode: "time"}});
     $.plot($("#duration_graph"), [{data: duration_data, bars: { show: true, barWidth: ms_per_day}}], {xaxis: {mode: "time"}});
+    $.plot($("#max_speed_graph"), [{data: max_speed_data, bars: { show: true, barWidth: ms_per_day}}], {xaxis: {mode: "time"}});
 });
 </script>
 
