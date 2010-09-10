@@ -20,7 +20,6 @@ class TweetFinder
           if long_url && long_url.match(/http:\/\/maps.google.com.*http:\/\/api.motionxlive.com.*/)
             puts "  Parsing #{long_url}"
             tt = TwitterTrack.create_from_kmz_url(long_url)
-            tt.kmz_file.destroy
             puts "  Done parsing #{tt}"
           else
             puts "  Skipping #{long_url}, it doesn't seem to be a motionx url"
