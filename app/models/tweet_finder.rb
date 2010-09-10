@@ -19,7 +19,11 @@ class TweetFinder
           long_url = Bitly.new(BITLY_USERNAME, BITLY_KEY).expand(matches[0]).long_url
           if long_url && long_url.match(/http:\/\/maps.google.com.*http:\/\/api.motionxlive.com.*/)
             puts "  Parsing #{long_url}"
-            tt = TwitterTrack.create_from_kmz_url(long_url)
+            begin
+              tt = TwitterTrack.create_from_kmz_url(long_url)
+            rescue TrackError => e
+              puts e.message
+            end
             puts "  Done parsing #{tt}"
           else
             puts "  Skipping #{long_url}, it doesn't seem to be a motionx url"
