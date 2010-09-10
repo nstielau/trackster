@@ -13,6 +13,8 @@ class TweetFinder
     results = Twitter::Search.new("#motionx").since(max_id).each do |r|
       puts "  Examiing tweet ##{r.id}: #{r.text}"
       max_id = r.id if r.id > max_id
+      parsed_tweets = 0
+      broken_tweets = 0
       if matches = r.text.match(/http.*$/)
         Bitly.use_api_version_3
         begin
@@ -21,8 +23,10 @@ class TweetFinder
             puts "  Parsing #{long_url}"
             begin
               tt = TwitterTrack.create_from_kmz_url(long_url)
+              parsed_tweets = parsed_tweets + 1
             rescue TrackError => e
               puts e.message
+              broken_tweets = broken_tweets + 1
             end
             puts "  Done parsing #{tt}"
           else
@@ -39,6 +43,6 @@ class TweetFinder
     end
     Meta.get_instance.last_twitter_update = max_id
     Meta.get_instance.save
-    puts "Done finding tweets.  Most recent tweet is #{Meta.get_instance.last_twitter_update}"
+    puts "Done finding tweets.  #{parsed_tweets} ok, #{broken_tweets} bad.  Most recent tweet is #{Meta.get_instance.last_twitter_update}"
   end
 end
