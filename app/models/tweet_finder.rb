@@ -10,11 +10,11 @@ class TweetFinder
   def self.find_tweets
     max_id = Meta.get_instance.last_twitter_update.to_i
     puts "Finding tweets with an ID > #{max_id}"
+    parsed_tweets = 0
+    broken_tweets = 0
     results = Twitter::Search.new("#motionx").since(max_id).each do |r|
       puts "  Examiing tweet ##{r.id}: #{r.text}"
       max_id = r.id if r.id > max_id
-      parsed_tweets = 0
-      broken_tweets = 0
       if matches = r.text.match(/http.*$/)
         Bitly.use_api_version_3
         begin
