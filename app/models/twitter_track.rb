@@ -13,7 +13,7 @@ class TwitterTrack < Track
       tmp.close
       kmz_file = tmp
     end
-    data = track.read_motionx_zip_data(kmz_file.path)
+    data = TwitterTrack.new.read_motionx_zip_data(kmz_file.path)
     track = TwitterTrack.new(data)
     track.save
     track
