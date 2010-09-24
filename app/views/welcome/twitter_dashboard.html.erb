@@ -19,25 +19,25 @@
 $(function () {
 var distance_data = [
 <% @twitter_data.each_with_index do |x, index| %>
-  <%= "[#{Time.mktime(x['year'], x['month'], x['day']).to_i * 1000}, #{x['distance'].to_f.meters.to.miles.to_f}]," -%>
+  <%= "[#{Time.mktime(x['year'], x['month'].to_i + 1, x['day']).to_i * 1000}, #{x['distance'].to_f.meters.to.miles.to_f}]," -%>
 <% end %>
 ];
 
 var duration_data = [
 <% @twitter_data.each do |x|%>
-  <%= "[#{Time.mktime(x['year'], x['month'], x['day']).to_i * 1000}, #{x['duration'].to_i / 60 / 60}]," -%>
+  <%= "[#{Time.mktime(x['year'], x['month'].to_i + 1, x['day']).to_i * 1000}, #{x['duration'].to_i / 60 / 60}]," -%>
 <% end %>
 ];
 
 var track_count_data = [
 <% @twitter_data.each do |x|%>
-  <%= "[#{Time.mktime(x['year'], x['month'], x['day']).to_i * 1000}, #{x['track_count']}]," -%>
+  <%= "[#{Time.mktime(x['year'], x['month'].to_i + 1, x['day']).to_i * 1000}, #{x['track_count']}]," -%>
 <% end %>
 ];
 
 var max_speed_data = [
 <% @twitter_data.each do |x|%>
-  <%= "[#{Time.mktime(x['year'], x['month'], x['day']).to_i * 1000}, #{x['max_speed']}]," -%>
+  <%= "[#{Time.mktime(x['year'], x['month'].to_i + 1, x['day']).to_i * 1000}, #{x['max_speed']}]," -%>
 <% end %>
 ];
     var ms_per_day = 1000*60*60*24;
